@@ -1,0 +1,71 @@
+.service {
+  margin-bottom: 220px;
+  background: url("../images/img-bg1.png") no-repeat -100px center / auto;
+  --column: 3;
+  &-main {
+    max-width: 952px;
+    width: 100%;
+    margin: 0 auto 80px;
+    text-align: center;
+  }
+  &-list {
+    display: grid;
+    grid-template-columns: repeat(var(--column), minmax(0, 1fr));
+    grid-gap: 34px;
+    align-items: stretch;
+    margin-bottom: 70px;
+  }
+  &-item {
+    background: #FFFFFF;
+    box-shadow: 10px 40px 50px rgba(229, 233, 246, 0.4);
+    border-radius: 20px;
+    padding: 50px 40px;
+  }
+  &-image {
+    height: 92px;
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+    margin-bottom: 40px;
+  }
+  &-title {
+    font-weight: 700;
+    font-size: 24px;
+    color: $black;
+    margin-bottom: 20px;
+  }
+  &-desc {
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 175%;
+    color: #7D7987;
+  }
+  &-button {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @media screen and (max-width: 1023.98px) {
+    margin-bottom: 100px;
+    --column: 2;
+    &-main {
+      margin-bottom: 50px;
+    }
+    
+  }
+  @media screen and (max-width: 767.98px) {
+    margin-bottom: 70px;
+    --column: 1;
+    &-list {
+      margin-bottom: 40px;
+    }
+    &-image {
+      height: auto;
+    }
+    &-item {
+      padding: 40px 30px;
+    }
+  }
+  
+}

@@ -1,0 +1,127 @@
+.footer {
+  background: linear-gradient(183.41deg, #67C3F3 -8.57%, #5A98F2 82.96%);
+  color: white;
+  &-main {
+    padding: 110px 0;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+  &-content {
+    width: 100%;
+    max-width: 390px;
+  }
+  &-logo {
+    margin-bottom: 20px;
+  }
+  &-text {
+    font-size: 18px;
+    line-height: calc(28 / 18);
+    margin-bottom: 30px;
+  }
+  &-title {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    
+  }
+  &-icon {
+    display: inline-block;
+    transform: translateY(3px);
+    transform-origin: center;
+    transition: all 0.2s cubic-bezier(0.215, 0.610, 0.355, 1);
+    display: none;
+  }
+  &-icon.is-active {
+    transform: rotate(180deg);
+  }
+  &-menu-link {
+    display: block;
+    font-size: 18px;
+    line-height: calc(38 / 18);
+    color: white;
+    opacity: 0.8;
+  }
+  &-menu-link + .footer-menu-link {
+    margin-top: 15px;
+  }
+  &-coppy {
+    font-size: 16px;
+    line-height: calc(28 / 16);
+  }
+  &-list {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0 170px;
+  }
+  &-menu {
+    list-style-type: none;
+  }
+  @media screen and (max-width: 1023.98px) {
+    &-main {
+      gap: 40px;
+    }
+    &-list {
+      gap: 20px;
+      flex: 1;
+    }
+    &-content {
+      max-width: unset;
+      width: 40%;
+    }
+  }
+  @media screen and (max-width: 767.98px) {
+    &-main {
+      flex-direction: column;
+      padding: 40px 0;
+    }
+    &-content {
+      width: 100%;
+    }
+    &-list {
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    &-item {
+      width: 100%;
+    }
+    &-menu {
+      visibility: hidden;
+      opacity: 0;
+      max-height: 0;
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+    &-icon {
+      display: block;
+    }
+    &-menu.is-active {
+      visibility: visible;
+      opacity: 1;
+      max-height: 100vh;
+    }
+  }
+}
+@mixin generateDots($size, $spacing, $column) {
+  width: $size;
+  height: $size;
+  border-radius: 100rem;
+  background-color: #93C1F9;
+  $value: ();
+  @for $i from 0 to $column {
+    @for $j from 0 to $column {
+      $x: $i * $spacing + px;
+      $y: $j * $spacing + px;
+      $theShadow: $x $y #93C1F9;
+      $value: append($value, $theShadow, comma)
+    }
+  }
+  box-shadow: $value;
+}
+.dots {
+  @include generateDots(10px, 20, 5);
+}
